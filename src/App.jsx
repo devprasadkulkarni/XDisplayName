@@ -17,13 +17,14 @@ const App = () => {
         if (data.firstName.trim() && data.lastName.trim()) {
             setFullName(`${data.firstName} ${data.lastName}`);
         } else {
-            setFullName(""); // don’t display anything if fields are empty
+            setFullName("");
         }
     };
 
     return (
         <form onSubmit={handleSubmit}>
             <h1>Full Name Display</h1>
+
             <span>First Name: </span>
             <input
                 className="border"
@@ -47,11 +48,12 @@ const App = () => {
                 required
             />
             <br />
+
             <button className="border px-2" type="submit">
                 Submit
             </button>
 
-            {fullName && <p>Full Name: {fullName}</p>}
+            <p>{fullName ? `Full Name: ${fullName}` : ""}</p>
         </form>
     );
 };
