@@ -16,8 +16,6 @@ const App = () => {
         e.preventDefault();
         if (data.firstName.trim() && data.lastName.trim()) {
             setFullName(`${data.firstName} ${data.lastName}`);
-        } else {
-            setFullName("");
         }
     };
 
@@ -25,35 +23,41 @@ const App = () => {
         <form onSubmit={handleSubmit}>
             <h1>Full Name Display</h1>
 
-            <span>First Name: </span>
-            <input
-                className="border"
-                type="text"
-                name="firstName"
-                placeholder="First Name"
-                value={data.firstName}
-                onChange={handleChange}
-                required
-            />
+            <label>
+                First Name:{" "}
+                <input
+                    type="text"
+                    name="firstName"
+                    placeholder="First Name"
+                    value={data.firstName}
+                    onChange={handleChange}
+                    required
+                />
+            </label>
             <br />
 
-            <span>Last Name: </span>
-            <input
-                className="border"
-                type="text"
-                name="lastName"
-                placeholder="Last Name"
-                value={data.lastName}
-                onChange={handleChange}
-                required
-            />
+            <label>
+                Last Name:{" "}
+                <input
+                    type="text"
+                    name="lastName"
+                    placeholder="Last Name"
+                    value={data.lastName}
+                    onChange={handleChange}
+                    required
+                />
+            </label>
             <br />
 
-            <button className="border px-2" type="submit">
+            <button type="submit" disabled={!data.firstName || !data.lastName}>
                 Submit
             </button>
 
-            <p>{fullName ? `Full Name: ${fullName}` : ""}</p>
+            <p>
+                {fullName
+                    ? `Full Name: ${fullName}`
+                    : "Full Name will appear here after submission"}
+            </p>
         </form>
     );
 };
