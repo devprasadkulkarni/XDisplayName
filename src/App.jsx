@@ -23,13 +23,14 @@ const App = () => {
     };
 
     return (
-        <>
-            <form onSubmit={handleSubmit}>
+        <div>
+            <form className="flex flex-col gap-2" onSubmit={handleSubmit}>
                 <h1>Full Name Display</h1>
 
                 <label>
                     First Name:{" "}
                     <input
+                        className="border"
                         type="text"
                         name="firstName"
                         placeholder="First Name"
@@ -42,6 +43,7 @@ const App = () => {
                 <label>
                     Last Name:{" "}
                     <input
+                        className="border"
                         type="text"
                         name="lastName"
                         placeholder="Last Name"
@@ -51,12 +53,15 @@ const App = () => {
                 </label>
                 <br />
 
-                <button type="submit">Submit</button>
+                <div className="mb-2">
+                    <button className="border px-1 py-2" type="submit">
+                        Submit
+                    </button>
+                </div>
             </form>
 
-            {/* MOVED OUTSIDE FORM so tests using .next() work */}
             {fullName && <p>Full Name: {fullName}</p>}
-        </>
+        </div>
     );
 };
 
