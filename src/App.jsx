@@ -23,43 +23,40 @@ const App = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <h1>Full Name Display</h1>
+        <>
+            <form onSubmit={handleSubmit}>
+                <h1>Full Name Display</h1>
 
-            <label>
-                First Name:{" "}
-                <input
-                    type="text"
-                    name="firstName"
-                    placeholder="First Name"
-                    value={data.firstName}
-                    onChange={handleChange}
-                />
-            </label>
-            <br />
+                <label>
+                    First Name:{" "}
+                    <input
+                        type="text"
+                        name="firstName"
+                        placeholder="First Name"
+                        value={data.firstName}
+                        onChange={handleChange}
+                    />
+                </label>
+                <br />
 
-            <label>
-                Last Name:{" "}
-                <input
-                    type="text"
-                    name="lastName"
-                    placeholder="Last Name"
-                    value={data.lastName}
-                    onChange={handleChange}
-                />
-            </label>
-            <br />
+                <label>
+                    Last Name:{" "}
+                    <input
+                        type="text"
+                        name="lastName"
+                        placeholder="Last Name"
+                        value={data.lastName}
+                        onChange={handleChange}
+                    />
+                </label>
+                <br />
 
-            <button id="next" type="submit">
-                Submit
-            </button>
+                <button type="submit">Submit</button>
+            </form>
 
-            <p>
-                {fullName
-                    ? `Full Name: ${fullName}`
-                    : "Full Name will appear here after submission"}
-            </p>
-        </form>
+            {/* MOVED OUTSIDE FORM so tests using .next() work */}
+            {fullName && <p>Full Name: {fullName}</p>}
+        </>
     );
 };
 
