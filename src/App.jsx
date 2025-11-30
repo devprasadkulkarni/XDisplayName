@@ -50,7 +50,9 @@ const App = () => {
             </label>
             <br />
 
-            <button type="submit">Submit</button>
+            <button id="next" type="submit">
+                Submit
+            </button>
 
             <p>
                 {fullName
