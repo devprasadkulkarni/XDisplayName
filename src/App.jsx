@@ -14,8 +14,11 @@ const App = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
         if (data.firstName.trim() && data.lastName.trim()) {
             setFullName(`${data.firstName} ${data.lastName}`);
+        } else {
+            setFullName("");
         }
     };
 
@@ -31,7 +34,6 @@ const App = () => {
                     placeholder="First Name"
                     value={data.firstName}
                     onChange={handleChange}
-                    required
                 />
             </label>
             <br />
@@ -44,14 +46,11 @@ const App = () => {
                     placeholder="Last Name"
                     value={data.lastName}
                     onChange={handleChange}
-                    required
                 />
             </label>
             <br />
 
-            <button type="submit" disabled={!data.firstName || !data.lastName}>
-                Submit
-            </button>
+            <button type="submit">Submit</button>
 
             <p>
                 {fullName
